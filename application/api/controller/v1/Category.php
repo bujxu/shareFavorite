@@ -5,6 +5,7 @@ use app\api\model\Category as CategoryModel;
 use \app\lib\exception\CategoryException;
 class Category
 {
+
     public function getAllCategories()
     {
         $categories = CategoryModel::all([], 'img');

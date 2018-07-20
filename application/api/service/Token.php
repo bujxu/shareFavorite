@@ -46,4 +46,45 @@ class Token
         $uid = self::getCurrentTokenVar('uid');
         return $uid;
     }
+
+    public static function needPrimaryScope()
+    {
+        $scope = self::getCurrentTokenVar('scope');
+        if ($scope)
+        {
+            if ($scope >= \app\lib\enum\ScopeEnum::User)
+            {
+                return true;
+            }
+            else
+            {
+                throw new \app\lib\exception\ForbiddenException;
+            }
+        }
+        else
+        {
+            throw new \app\lib\exception\TokenException;
+        }
+
+    }
+
+    public static function needExclusiveScope()
+    {
+        $scope = self::getCurrentTokenVar('scope');
+        if ($scope)
+        {
+            if ($scope == \app\lib\enum\ScopeEnum::User)
+            {
+                return true;
+            }
+            else
+            {
+                throw new \app\lib\exception\ForbiddenException;
+            }
+        }
+        else
+        {
+            throw new \app\lib\exception\TokenException;
+        }
+    }
 }

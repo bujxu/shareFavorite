@@ -5,8 +5,13 @@ use app\api\service\Token as TokenService;
 use app\api\model\UserAddress;
 use app\api\model\User as UserModel;
 
-class Address 
+class Address extends \app\api\controller\BaseController
 {
+    protected $beforeActionList = [
+        'checkPrimaryScope' => ['only' => 'createOrUpdateAddress']
+    ];
+
+
     public function createOrUpdateAddress()
     {
         $validate = new \app\api\validate\AddressNew;

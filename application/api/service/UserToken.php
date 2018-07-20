@@ -80,7 +80,7 @@ class UserToken extends Token
     {
         $cachedValue = $wxResult;
         $cachedValue['uid'] = $uid;
-        $cachedValue['scope'] = 16;
+        $cachedValue['scope'] = \app\lib\enum\ScopeEnum::User;
         return $cachedValue;
     }
 

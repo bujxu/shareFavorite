@@ -9,16 +9,7 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
-// return [
-//     '__pattern__' => [
-//         'name' => '\w+',
-//     ],
-//     '[hello]'     => [
-//         ':id'   => ['index/hello', ['method' => 'get'], ['id' => '\d+']],
-//         ':name' => ['index/hello', ['method' => 'post']],
-//     ],
 
-// ];
 
 use think\Route;
 
@@ -51,4 +42,7 @@ Route::get('api/:version/product/:id', 'api/:version.Product/getOne', [], ['id' 
 Route::get('api/:version/category/all', 'api/:version.Category/getAllCategories');
 
 Route::post('api/:version/token/user', 'api/:version.Token/getToken');
-Route::post('api/:version/Address', 'api/:version.Address/createOrUpdateAddress');
+Route::post('api/:version/address', 'api/:version.Address/createOrUpdateAddress');
+
+Route::post('api/:version/order', 'api/:version.Order/placeOrder');
+// Route::get('api/:version/Address/second', 'api/:version.Address/second');
