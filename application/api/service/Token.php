@@ -2,6 +2,7 @@
 
 namespace app\api\service;
 
+use think\Cache;
 class Token
 {
     public static function generateToken()
