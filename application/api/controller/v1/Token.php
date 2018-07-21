@@ -18,8 +18,8 @@ class Token
     public function verifyToken($token='')
     {
         if(!$token){
-            throw new ParameterException([
-                'token²»ÔÊĞíÎª¿Õ'
+            throw new \app\lib\exception\ParameterException([
+                'tokenä¸å…è®¸ä¸ºç©º'
             ]);
         }
         $valid = TokenService::verifyToken($token);
