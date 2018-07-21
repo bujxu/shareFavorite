@@ -14,4 +14,17 @@ class Token
         
         return ['token' => $token];
     }
+
+    public function verifyToken($token='')
+    {
+        if(!$token){
+            throw new ParameterException([
+                'token²»ÔÊĞíÎª¿Õ'
+            ]);
+        }
+        $valid = TokenService::verifyToken($token);
+        return [
+            'isValid' => $valid
+        ];
+    }
 }

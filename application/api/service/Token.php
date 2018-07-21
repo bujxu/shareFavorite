@@ -87,4 +87,14 @@ class Token
             throw new \app\lib\exception\TokenException;
         }
     }
+    public static function verifyToken($token)
+    {
+        $exist = Cache::get($token);
+        if($exist){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
