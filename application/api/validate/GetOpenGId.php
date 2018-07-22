@@ -2,7 +2,7 @@
 
 namespace app\api\validate;
 
-class getOpenGId extends BaseValidate
+class GetOpenGId extends BaseValidate
 {
     protected $rule = [
         'encryptedData' => 'require|isNotEmpty',
