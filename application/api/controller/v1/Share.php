@@ -8,7 +8,7 @@ class Share
 {
     public function getOpenGId($encryptedData='', $iv='')
     {
-        (new \app\api\validate\getOpenGId)->goCheck();
+        (new \app\api\validate\GetOpenGId)->goCheck();
         $result = ShareService::get($encryptedData, $iv);
 
         return json_decode($result);
