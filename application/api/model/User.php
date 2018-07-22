@@ -16,4 +16,8 @@ class User extends BaseModel
         return $user;
     }
 
+    public function groups()
+    {
+        return $this->belongsToMany('Group', 'user_group', 'group_id', 'user_id');
+    }
 }
