@@ -14,4 +14,10 @@ class BaseController extends \think\Controller
     {
         TokenService::needExclusiveScope();
     }
+
+    public function checkDecodeData($encryptedData='', $iv='')
+    {
+        (new \app\api\validate\DecodeData)->goCheck();
+    }
+
 }

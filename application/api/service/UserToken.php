@@ -16,7 +16,7 @@ class UserToken extends Token
         $this->wxAppSecret = config('wx.app_secret');
         $this->wxLoginUrl = sprintf(config('wx.login_url'), $this->wxAppID, $this->wxAppSecret, $this->code);
     }
-
+    
     public function get()
     {
         $result = curl_get($this->wxLoginUrl);
@@ -51,6 +51,7 @@ class UserToken extends Token
         else
         {
             $uid = $this->newUser($openid);
+            
         }
 
         $cachedValue = $this->prepareCachedValue($wxResult, $uid);
