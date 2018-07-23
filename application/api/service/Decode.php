@@ -45,10 +45,8 @@ class Decode
             }
             return $data;
         } 
-        else 
-        {
-            return $errCode;
-        }
+
+        return $result['errCode'];
     }
 
     public static function getUserData($encryptedData, $iv)
@@ -66,6 +64,8 @@ class Decode
             $user->city = $data['city'];
 
             $user->save();
+
+            return $data;
         } 
         
         return $result['errCode'];
