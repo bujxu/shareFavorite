@@ -62,7 +62,7 @@ class Decode
             $user->avatarUrl = $data['avatarUrl'];
             $user->province = $data['province'];
             $user->city = $data['city'];
-
+            $user->gender = $data['gender'];
             $user->save();
 
             return $data;

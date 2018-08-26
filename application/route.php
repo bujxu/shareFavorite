@@ -49,4 +49,5 @@ Route::post('api/:version/address', 'api/:version.Address/createOrUpdateAddress'
 Route::post('api/:version/order', 'api/:version.Order/placeOrder');
 Route::post('api/:version/decode/share', 'api/:version.Decode/decodeShare');
 Route::post('api/:version/decode/user', 'api/:version.Decode/decodeUser');
+Route::get('api/:version/decode/getGroups', 'api/:version.Decode/getGroups');
 // Route::get('api/:version/Address/second', 'api/:version.Address/second');
