@@ -2,7 +2,7 @@
 
 namespace app\api\controller\v1;
 use \app\api\service\Decode as DecodeService;
-use \app\api\model\User as UserModel;
+use \app\api\service\Group as GroupService;
 use \app\api\service\Token as TokenService;
 
 class Decode
@@ -28,7 +28,7 @@ class Decode
 
     public function getGroups()
     {
-        $result = UserModel::getGroupsWithUser(TokenService::getCurrentUid());
+        $result = GroupService::getGroupsWithUser(TokenService::getCurrentUid());
 
         return $result;
     }

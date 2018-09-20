@@ -20,21 +20,12 @@ class User extends BaseModel
     {
         return $this->hasMany('UserGroup', 'user_id', 'id');
     }
-
-    public function group()
-    {
-        return $this->belongsToMany('Group', 'group_id', 'user_id');
-    }
-
-    public function groups()
-    {
-        return $this->belongsTo('Group', 'group_id', 'id');
-    }
     
     public static function getGroupsWithUser($id)
     {
-        $groups = self::where(['id' => $id])->with(['UserGroup', 'UserGroup.groups'])->select();
-        return $groups;
+        $groups = self::where(['id' => $id])->with(['UserGroup', 'UserGroup.groups'])->select()->toArray();
+        return $groups[0]['user_group'];
     }
+    
 
 }

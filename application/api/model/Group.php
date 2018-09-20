@@ -21,4 +21,20 @@ class Group extends BaseModel
         return $group;
     }
 
+    public function UserGroup()
+    {
+        return $this->hasMany('UserGroup', 'group_id', 'id');
+    }
+
+    public static function getGroupUsers($groupId)
+    {
+        $users = self::where(['id' => $groupId])->with(['UserGroup', 'UserGroup.users'])->select();
+        return $users;
+    }
+
+    // public static function getNewestImage($groupId)
+    // {
+    //     $group = self::where(['id' => $groupId])->find()->toArray();
+    //     return $group['image'];
+    // }
 }

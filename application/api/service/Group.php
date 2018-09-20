@@ -3,7 +3,8 @@
 namespace app\api\service;
 use \think\Db;
 use \app\api\service\Token as TokenService;
-
+use \app\api\model\User as UserModel;
+use \app\api\model\Commit as CommitModel;
 class Group
 {
     public static function createGroup($openGId)
@@ -45,4 +46,26 @@ class Group
             throw $ex;
         }
     }
+
+    public static function getGroupNewestImage($groupId)
+    {
+        $commit = CommitModel::getGroupNewestCommit($groupId);
+        
+        return $commit['commit_images'][0]['image']['url'];
+    }
+    
+    public static function getGroupsWithUser($groupId)
+    {
+        $groups = UserModel::getGroupsWithUser($groupId);
+
+        for ($index = 0; $index < count($groups); $index++)
+        {
+            $result[$index]['image'] = self::getGroupNewestImage($groups[$index]['group_id']);
+            $result[$index]['groupId'] = $groups[$index]['group_id'];
+            $result[$index]['openGId'] = $groups[$index]['groups']['openGId'];
+        }
+
+        return $result;
+    }
+
 }
