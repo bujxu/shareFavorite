@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'img_prefix' => 'https://share.bujxu.com/shareFavorite/public/images',
+    'img_prefix' => 'https://share.bujxu.com/sharefavorite/public/static/upload/image/',
     'token_expire_in' => 7200,
     'web_url' => 'https://share.bujxu.com/sharefavorite/', 
     'upload_config' => 
