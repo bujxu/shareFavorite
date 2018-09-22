@@ -86,7 +86,7 @@ class Commit
     public static function getGroupCommit($groupId)
     {
         $time = time();
-        $result = array('content' => [], 'images' => [], 'commitId' => [], 'time' => []);
+        $result = array('content' => [], 'images' => [], 'commitId' => [], 'time' => [], 'count' => []);
         $commits = CommitModel::getGroupCommit($groupId);
         for ($index = 0; $index < count($commits); $index++)
         {
@@ -94,6 +94,7 @@ class Commit
             $result['images'][$index] = $commits[$index]['commit_images'][$time % (count($commits[$index]['commit_images']))]['image']['url'];
             $result['commitId'][$index] = $commits[$index]['id'];
             $result['time'][$index] = $commits[$index]['create_time'];
+            $result['count'][$index] = count($commits[$index]['commit_images']);
         }
 
         return $result;
