@@ -10,6 +10,12 @@ class UserGroup extends BaseModel
         return $user;
     }
 
+    public static function checkUserIdExist($groupId, $userId)
+    {
+        $user = self::where(['group_id' => $GroupId, 'user_id' => $userId])->find();
+        return $user;
+    }
+
     public static function getGroupsByUserId($uid)
     {
         $groups = self::where(['user_id' => $uid])->select();

@@ -37,7 +37,8 @@ class Decode
             }
             else 
             {
-                $user = UserGroupModel::getUserIdByGroupId($group['id']);
+                // $user = UserGroupModel::getUserIdByGroupId($group['id']);
+                $user = UserGroupModel::checkUserIdExist($group['id'], TokenService::getCurrentUid());
                 if (!$user['user_id'])
                 {
                     $userGroup = GroupService::createMap($group['id']);
