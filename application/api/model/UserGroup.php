@@ -12,7 +12,7 @@ class UserGroup extends BaseModel
 
     public static function checkUserIdExist($groupId, $userId)
     {
-        $user = self::where(['group_id' => $GroupId, 'user_id' => $userId])->find();
+        $user = self::where(['group_id' => $groupId, 'user_id' => $userId])->find();
         return $user;
     }
 
