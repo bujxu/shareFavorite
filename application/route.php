@@ -49,14 +49,15 @@ Route::post('api/:version/address', 'api/:version.Address/createOrUpdateAddress'
 Route::post('api/:version/order', 'api/:version.Order/placeOrder');
 Route::post('api/:version/decode/share', 'api/:version.Decode/decodeShare');
 Route::post('api/:version/decode/user', 'api/:version.Decode/decodeUser');
+
 Route::get('api/:version/decode/getGroups', 'api/:version.Decode/getGroups');
-Route::get('api/:version/user/getGroupUsers', 'api/:version.User/getGroupUsers');
-Route::get('api/:version/user/getGroupCommit', 'api/:version.User/getGroupCommit');
-Route::get('api/:version/user/getGroupUserInfo', 'api/:version.User/getGroupUserInfo');
-Route::post('api/:version/user/userUploadSingle', 'api/:version.User/userUploadSingle');
-Route::post('api/:version/user/userUploadAdd', 'api/:version.User/userUploadAdd');
-Route::post('api/:version/user/userUploadModify', 'api/:version.User/userUploadModify');
-Route::get('api/:version/user/userUploadDel', 'api/:version.User/userUploadDel');
-Route::get('api/:version/user/groupUserCommit', 'api/:version.User/groupUserCommit');
-Route::get('api/:version/user/getCommit', 'api/:version.User/getCommit');
+Route::get('api/:version/group/getGroupUsers', 'api/:version.Group/getGroupUsers');
+Route::get('api/:version/group/getGroupCommit', 'api/:version.Group/getGroupCommit');
+// Route::get('api/:version/user/getGroupUserInfo', 'api/:version.User/getGroupUserInfo');
+Route::post('api/:version/group/userUploadSingle', 'api/:version.Group/userUploadSingle');
+Route::post('api/:version/group/userUploadAdd', 'api/:version.Group/userUploadAdd');
+Route::post('api/:version/group/userUploadModify', 'api/:version.Group/userUploadModify');
+Route::get('api/:version/group/userUploadDel', 'api/:version.Group/userUploadDel');
+Route::get('api/:version/group/groupUserCommit', 'api/:version.Group/groupUserCommit');
+Route::get('api/:version/group/getCommit', 'api/:version.Group/getCommit');
 // Route::get('api/:version/Address/second', 'api/:version.Address/second');
