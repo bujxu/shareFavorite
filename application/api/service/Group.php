@@ -57,7 +57,7 @@ class Group
     public static function getGroupsWithUser($groupId)
     {
         $groups = UserModel::getGroupsWithUser($groupId);
-
+        $result = [];
         for ($index = 0; $index < count($groups); $index++)
         {
             $result[$index]['image'] = self::getGroupNewestImage($groups[$index]['group_id']);
